@@ -12,8 +12,7 @@ export function ResumeManagement() {
     const file = e.target.files?.[0];
     if (file && studentProfile) {
       setUploading(true);
-      
-      // Simulate file upload
+
       setTimeout(() => {
         const newResume: Resume = {
           id: crypto.randomUUID(),
@@ -101,7 +100,7 @@ export function ResumeManagement() {
           <div className="px-8 py-6 border-b">
             <h2 className="text-xl font-bold text-gray-900">Resume History & Version Tracking</h2>
           </div>
-          
+
           {resumes.length === 0 ? (
             <div className="p-8 text-center">
               <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
@@ -152,14 +151,25 @@ export function ResumeManagement() {
                         <div className="flex items-center gap-2">
                           {getStatusIcon(resume.status)}
                           <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(resume.status)}`}>
-                            {resume.status === 'pending' ? 'Pending Review' : resume.status.charAt(0).toUpperCase() + resume.status.slice(1)}
+                            {resume.status === 'pending'
+                              ? 'Pending Review'
+                              : resume.status.charAt(0).toUpperCase() + resume.status.slice(1)}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <button className="text-blue-600 hover:text-blue-800 font-medium">
-                          View
-                        </button>
+                        {resume.fileUrl ? (
+                          <a
+                            href={resume.fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 font-medium"
+                          >
+                            View
+                          </a>
+                        ) : (
+                          <span className="text-gray-400 font-medium">No file</span>
+                        )}
                       </td>
                     </tr>
                   ))}

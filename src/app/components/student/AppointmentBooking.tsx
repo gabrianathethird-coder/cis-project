@@ -14,10 +14,9 @@ export function AppointmentBooking() {
   });
 
   const counselors = [
-    'Dr. Sarah Johnson',
-    'Prof. Michael Chen',
-    'Ms. Emily Rodriguez',
-    'Dr. David Thompson',
+    'Dr. Risty Acerado',
+    'Ms. Roselia Morco',
+    
   ];
 
   const timeSlots = [

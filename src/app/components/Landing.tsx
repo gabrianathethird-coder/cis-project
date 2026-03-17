@@ -1,8 +1,9 @@
 import { Link } from 'react-router';
-import { Shield, ChevronRight } from 'lucide-react';
+import { Shield, ChevronRight, GraduationCap, Building2, ThumbsUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import tipLogo from '../../assets/168f322f0f107f9b8d44f05a40c22b8dd21cafd3.png';
 import jobHiring from '../../assets/JobHiring.jpg';
+import careerImage from '../../assets/CareerImage.jpg';
 import accentureLogo from '../../assets/logos/AccentureLogo.png';
 import sapLogo from '../../assets/logos/SAPLogo.png';
 import ibmLogo from '../../assets/logos/IBMLogo.png';
@@ -23,7 +24,7 @@ export function Landing() {
   return (
     <div className="min-h-screen bg-white text-[#292929]">
       {/* Top Utility Bar */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -35,7 +36,7 @@ export function Landing() {
       </motion.div>
 
       {/* Main Navigation */}
-      <motion.nav 
+      <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -44,23 +45,23 @@ export function Landing() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-8">
-              <motion.img 
+              <motion.img
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                src={tipLogo} 
-                alt="TIP Logo" 
-                className="h-12 w-auto" 
+                src={tipLogo}
+                alt="TIP Logo"
+                className="h-12 w-auto"
               />
-              <motion.div 
+              <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={{
                   hidden: { opacity: 0 },
                   visible: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.1, delayChildren: 0.4 }
-                  }
+                    transition: { staggerChildren: 0.1, delayChildren: 0.4 },
+                  },
                 }}
                 className="hidden md:flex gap-6"
               >
@@ -69,7 +70,7 @@ export function Landing() {
                     key={item}
                     variants={{
                       hidden: { opacity: 0, y: -10 },
-                      visible: { opacity: 1, y: 0 }
+                      visible: { opacity: 1, y: 0 },
                     }}
                   >
                     <Link to={`/${item.toLowerCase()}`} className="text-white hover:text-[#FFB507] transition-colors">
@@ -97,13 +98,13 @@ export function Landing() {
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex-1"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -111,7 +112,7 @@ export function Landing() {
             >
               Build confidence.
             </motion.h1>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -119,7 +120,7 @@ export function Landing() {
             >
               Get the job.
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -146,23 +147,19 @@ export function Landing() {
           </motion.div>
 
           {/* Right Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             whileHover={{ scale: 1.02 }}
             className="flex-1"
           >
-            <img 
-              src={jobHiring} 
-              alt="Career Opportunities" 
-              className="w-full h-auto rounded-lg shadow-xl"
-            />
+            <img src={jobHiring} alt="Career Opportunities" className="w-full h-auto rounded-lg shadow-xl" />
           </motion.div>
         </div>
 
         {/* Trusted By - Company Logos with Names */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -171,7 +168,7 @@ export function Landing() {
         >
           <p className="text-sm font-semibold text-[#FFB507] tracking-wider mb-4">TRUSTED BY</p>
           <p className="text-gray-600 mb-8">Featuring opportunities from leading companies</p>
-          
+
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {companyLogos.map((company, index) => (
               <motion.div
@@ -184,11 +181,7 @@ export function Landing() {
                 className="flex flex-col items-center gap-2"
               >
                 <div className="w-20 h-20 bg-white rounded-lg shadow-md p-3 flex items-center justify-center hover:shadow-xl transition-shadow">
-                  <img 
-                    src={company.logo} 
-                    alt={company.name} 
-                    className="max-w-full max-h-full object-contain"
-                  />
+                  <img src={company.logo} alt={company.name} className="max-w-full max-h-full object-contain" />
                 </div>
                 <span className="font-bold text-sm text-[#292929]">{company.name}</span>
               </motion.div>
@@ -197,14 +190,14 @@ export function Landing() {
         </motion.div>
 
         {/* Services */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.2 }}
           className="mt-32"
         >
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -213,7 +206,7 @@ export function Landing() {
           >
             Comprehensive Career Services
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -266,44 +259,93 @@ export function Landing() {
           </div>
         </motion.div>
 
-        {/* About Section */}
-        <motion.div 
+        {/* About Section with Icons */}
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="mt-32 bg-gray-50 rounded-2xl p-12 border border-gray-200"
+          className="mt-32 bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200"
         >
-          <h2 className="text-3xl font-bold text-[#292929] mb-6 text-center">About TIP Career Services</h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            The Technological Institute of the Philippines Career Resource Service is dedicated to bridging the gap
-            between students seeking opportunities and employers looking for talent.
-          </p>
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-[#292929] mb-6">About TIP Career Services</h2>
+              <p className="text-gray-600 mb-10">
+                The Technological Institute of the Philippines Career Resource Service is dedicated to bridging the gap
+                between students seeking opportunities and employers looking for talent.
+              </p>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            {[
-              { number: '1000+', label: 'Students Placed' },
-              { number: '200+', label: 'Partner Companies' },
-              { number: '95%', label: 'Satisfaction Rate' },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.1 }}
-              >
-                <div className="text-4xl font-bold text-[#FFB507] mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
+              <div className="grid grid-cols-3 gap-6 text-center">
+                {/* Students Placed */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#292929] flex items-center justify-center mb-2">
+                    <GraduationCap className="w-6 h-6 text-[#FFB507]" />
+                  </div>
+                  <div className="text-4xl font-bold text-[#FFB507] mb-1">1000+</div>
+                  <div className="text-gray-600 text-sm">Students Placed</div>
+                </motion.div>
+
+                {/* Partner Companies */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#292929] flex items-center justify-center mb-2">
+                    <Building2 className="w-6 h-6 text-[#FFB507]" />
+                  </div>
+                  <div className="text-4xl font-bold text-[#FFB507] mb-1">200+</div>
+                  <div className="text-gray-600 text-sm">Partner Companies</div>
+                </motion.div>
+
+                {/* Satisfaction Rate */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#292929] flex items-center justify-center mb-2">
+                    <ThumbsUp className="w-6 h-6 text-[#FFB507]" />
+                  </div>
+                  <div className="text-4xl font-bold text-[#FFB507] mb-1">95%</div>
+                  <div className="text-gray-600 text-sm">Satisfaction Rate</div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Right side image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="w-full"
+            >
+              <img
+                src={careerImage}
+                alt="TIP Career Services"
+                className="w-full h-[320px] md:h-[420px] object-cover rounded-xl shadow-lg"
+              />
+            </motion.div>
           </div>
         </motion.div>
       </div>
 
       {/* CTA Section */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -311,7 +353,7 @@ export function Landing() {
         className="mt-8 bg-white px-4 py-10"
       >
         <div className="mx-auto max-w-6xl text-center rounded-2xl bg-[#292929] px-6 py-12">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -320,7 +362,7 @@ export function Landing() {
           >
             Ready to get started?
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -349,7 +391,7 @@ export function Landing() {
       </motion.div>
 
       {/* Footer */}
-      <motion.footer 
+      <motion.footer
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -414,7 +456,7 @@ export function Landing() {
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}

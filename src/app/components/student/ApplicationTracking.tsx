@@ -63,8 +63,8 @@ export function ApplicationTracking() {
     }
   };
 
-  const activeJobs = allJobPostings.filter(job => 
-    job.status === 'active' && !applications.some(app => app.jobId === job.id)
+  const activeJobs = allJobPostings.filter(
+    (job) => job.status === 'active' && !applications.some((app) => app.jobId === job.id),
   );
 
   return (
@@ -88,7 +88,6 @@ export function ApplicationTracking() {
           </div>
         )}
 
-        {/* Available Jobs */}
         {activeJobs.length > 0 && studentProfile && (
           <div className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Available Opportunities</h2>
@@ -104,9 +103,7 @@ export function ApplicationTracking() {
                           <Building2 className="w-4 h-4" />
                           {job.location}
                         </span>
-                        <span className="px-2 py-1 bg-gray-100 rounded text-xs font-medium">
-                          {job.type}
-                        </span>
+                        <span className="px-2 py-1 bg-gray-100 rounded text-xs font-medium">{job.type}</span>
                       </div>
                       <p className="text-gray-700 text-sm line-clamp-2">{job.description}</p>
                     </div>
@@ -123,7 +120,6 @@ export function ApplicationTracking() {
           </div>
         )}
 
-        {/* My Applications */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900">My Applications</h2>
           {studentProfile && !showAddForm && (
